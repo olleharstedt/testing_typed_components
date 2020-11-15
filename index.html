@@ -1,14 +1,27 @@
 <?doctype html>
 <html>
 	<head>
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-	</head>
-	<body>
-		<h1>Hi</h1>
-		<div id="app">
-			  {{ message }}
-        <p>{{seconds}} since load</p>
-		</div>
-		<script src="js/test1.js"></script>
-	</body>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script>
+      window.process = {
+        env: {
+          NODE_ENV: "development"
+        }
+      };
+      const react = window.React;
+      const reactDom = window.ReactDOM;
+      window.react = window.React;
+      console.log(react);
+
+      class Welcome extends React.Component {
+        render() {
+          return `<h1>Hello, ${this.props.name}</h1>`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Hi</h1>
+  </body>
 </html>

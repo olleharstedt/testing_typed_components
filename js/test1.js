@@ -1,33 +1,36 @@
 // @ts-check
-// @flow strict
 
 'use strict';
 
-// flowlint unclear-type: off
+/**
+ * Check with:
+ *   tsc --noEmit --allowJs types/* js/test1.js
+ * Or:
+ *   flow
+ */
+
 /*flow-include
+type ComponentOptions = {|
+  el: string;
+  data: {};
+|}
 declare class Vue {
-  constructor(Object): void
+  constructor(ComponentOptions): void
 }
 */
-// flowlint unclear-type: error
 
-class MyApp extends Vue {
-  /*:: seconds: number; */
-  constructor(options) {
-    super(options);
-    this.seconds = 0;
-  }
-  init() {
-    setInterval(() => {
-      this.seconds++;
-    }, 1000);
-  }
-}
-
-let app = new MyApp({
+const MyApp = Vue.extend({
+  props: {
+  },
   el: '#app',
   data: {
     message: 'Hello Vue!',
     seconds: 0
   },
+  created() {
+    this.econds = 'asd';
+    setInterval(() => {
+      this.seconds = 'asd';
+    }, 1000);
+  }
 });

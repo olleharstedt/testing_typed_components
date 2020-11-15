@@ -1,17 +1,28 @@
 // @flow
+// @ts-check
+
+/**
+ * Type-check with:
+ *   flow
+ * Or:
+ *   tsc --allowJs --noEmit --jsx react --target es6 --moduleResolution Node node_modules/@types/react/index.d.ts node_modules/csstype/index.d.ts js/reactapp.js
+ */
 
 /*::
 import React from 'react';
 import ReactDOM from 'react-dom';
  */
 
-type Props = {
-  name: string
+class Props {
+  /**
+   * @type {string}
+   */
+  name
 }
 
 /**
  */
-class ShoppingList extends React.Component<Props> {
+class ShoppingList extends React.Component {
   render() {
     console.log('render');
     return (
@@ -27,7 +38,7 @@ class ShoppingList extends React.Component<Props> {
   }
 }
 
-const t = React.createElement(ShoppingList, {name: 'Mark'});
+const t = React.createElement(ShoppingList, {name: 123});
 ReactDOM.render(
   t,
   document.getElementById('root'),
